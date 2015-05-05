@@ -15,7 +15,7 @@ class GooglePlay
   end
 
   def app(id)
-    res = @client.get("#{GooglePlay::BASE_URL}/store/apps/details", {:id => id})
+    res = @client.get("#{GooglePlay::BASE_URL}/store/apps/details", {:hl => 'en', :id => id})
     raise GooglePlay::App::NotFoundError.new("'#{id}' is not found") if res.status_code == 404
     parse_app(res.content)
   end
