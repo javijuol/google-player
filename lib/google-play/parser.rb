@@ -57,8 +57,9 @@ class GooglePlay
 
     def parse_review_date(node)
       text = node.xpath(".//span[@class='review-date']").text
-      text =~ /(\d+)\D+(\d+)\D+(\d+)/
-      Date.new($1.to_i, $2.to_i, $3.to_i)
+      #text =~ /(\d+)\D+(\d+)\D+(\d+)/
+      #Date.new($1.to_i, $2.to_i, $3.to_i)
+      Date.parse(text)
     end
 
     def parse_review_rating(node)
@@ -133,8 +134,9 @@ class GooglePlay
 
     def parse_app_last_update(node)
       text = node.xpath("//div[@itemprop='datePublished']").text
-      text =~ /(\d+)\D+(\d+)\D+(\d+)/
-      Date.new($1.to_i, $2.to_i, $3.to_i)
+      #text =~ /(\d+)\D+(\d+)\D+(\d+)/
+      #Date.new($1.to_i, $2.to_i, $3.to_i)
+      Date.parse(text)
     end
 
     def parse_app_file_size(node)
